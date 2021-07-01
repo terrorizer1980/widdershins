@@ -16,7 +16,7 @@ func main() { {{?data.allHeaders.length}}
 
     req, err := http.NewRequest("{{=data.methodUpper}}", "{{=data.url}}"{{?data.bodyParameter.present}}, data{{??}}, nil{{?}})
     req.Header = headers
-    req.SetBasicAuth("api_example_company", "Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ=")
+    req.SetBasicAuth("api_example_identifier", "Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ=")
 
     client := &http.Client{}
     resp, err := client.Do(req)

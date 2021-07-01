@@ -11,7 +11,7 @@ result = RestClient::Request.execute(
   method: :{{=data.method.verb}},
   url: '{{=data.url}}',
   password: 'Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ=',
-  user: 'api_example_company'{{?data.bodyParameter.present}},
+  user: 'api_example_identifier'{{?data.bodyParameter.present}},
   payload: data{{?}}{{? data.allHeaders.length}},
   headers: headers{{?}}
 )

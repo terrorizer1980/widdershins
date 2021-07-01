@@ -8,7 +8,7 @@ import requests
 
 r = requests.{{=data.method.verb}}(
   '{{=data.url}}',
-  auth=('api_example_company', 'Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ='){{? data.requiredParameters.length}},
+  auth=('api_example_identifier', 'Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ='){{? data.requiredParameters.length}},
   params={
     {{~ data.requiredParameters :p:index}}  '{{=p.name}}': {{=p.exampleValues.json}}{{? data.requiredParameters.length-1 != index }},{{?}}{{~}}
   }{{?}}{{?data.bodyParameter.present}},
