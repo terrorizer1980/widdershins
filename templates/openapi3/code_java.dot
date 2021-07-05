@@ -1,7 +1,7 @@
 URL obj = new URL("{{=data.url}}{{=data.requiredQueryString}}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-String userCredentials = "api_example_company:Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ=";
+String userCredentials = "{{=data.authParameter.username}}:{{=data.authParameter.token}}";
 String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userCredentials.getBytes()));
 con.setRequestProperty ("Authorization", basicAuth);
 

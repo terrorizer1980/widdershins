@@ -1,6 +1,6 @@
 {{?data.bodyParameter.present}}let inputBody = {{=JSON.stringify(data.bodyParameter.exampleValues.json)}};{{?}}
-let user = 'api_example_company';
-let password = 'Ke+2jinhe5jM87P95aAVOz7L3ZWrtSiERtyOkkh5tEQ=';
+let user = '{{=data.authParameter.username}}';
+let password = '{{=data.authParameter.token}}';
 let headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(user + ":" + password));{{?data.allHeaders.length}}
 {{~data.allHeaders :p:index}}  headers.set('{{=p.name}}', {{=p.exampleValues.json}});{{~}}
