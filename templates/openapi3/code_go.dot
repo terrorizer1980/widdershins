@@ -9,10 +9,9 @@ import ({{?data.bodyParameter.present}}
 
 func main() { {{?data.allHeaders.length}}
     headers := map[string][]string{
-        {{~data.allHeaders :p:index}}"{{=p.name}}": []string{"{{=p.exampleValues.object}}"},
-        {{~}}
-    }{{?}}{{?data.bodyParameter.present}}
-    data := bytes.NewBuffer([]byte(`{{=JSON.stringify(data.bodyParameter.exampleValues.json)}}`)){{?}}
+        {{~data.allHeaders :p:index}}"{{=p.name}}": []string{"{{=p.exampleValues.object}}"},{{?index < data.allHeaders.length-1}}
+        {{?}}{{~}}
+    }{{?}}
 
     req, err := http.NewRequest("{{=data.methodUpper}}", "{{=data.url}}"{{?data.bodyParameter.present}}, data{{??}}, nil{{?}})
     req.Header = headers

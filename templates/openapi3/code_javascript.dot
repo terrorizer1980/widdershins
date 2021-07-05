@@ -3,7 +3,8 @@ let user = '{{=data.authParameter.username}}';
 let password = '{{=data.authParameter.token}}';
 let headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(user + ":" + password));{{?data.allHeaders.length}}
-{{~data.allHeaders :p:index}}  headers.set('{{=p.name}}', {{=p.exampleValues.json}});{{~}}
+{{~data.allHeaders :p:index}}  '{{=p.name}}':{{=p.exampleValues.json}}{{?index < data.allHeaders.length-1}},{{?}}
+{{~}}};
 {{?}}
 
 fetch('{{=data.url}}{{=data.requiredQueryString}}',
